@@ -1,0 +1,22 @@
+server:
+  port : 9999
+zuul:
+  routes:
+    offer:
+      path: /offer/**
+      url: http://${LOCAL_HOST}:1001/api/v1
+    shoe:
+      path: /shoe/**
+      url: http://${LOCAL_HOST}:1002/api/v1
+    wishlist:
+      path: /wishlist/**
+      url: http://${LOCAL_HOST}:5000
+    cart:
+      path: /cart/**
+      url: http://${LOCAL_HOST}:1004/api/v1
+
+
+
+
+##here we can give the env variables in application.yml in microservices of zuul-api-gateway..
+##while we given the env variables means we have to give -e option in docker and coming to k8 the ConfigMap will stores the value of env variable   
